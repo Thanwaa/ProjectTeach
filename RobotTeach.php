@@ -23,12 +23,12 @@ $arrPostData = array();
 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 $arrPostData['messages'][0]['type'] = "text";
 $arrPostData['messages'][0]['text'] = "สวัสดี ID ของคุณคือ ".$arrJson['events'][0]['source']['userId'];
-}else if($arrJson['events'][0]['message']['text'] == "123456789") // เป็นรหัสเปลดล็อด
+}else if($arrJson['events'][0]['message']['text'] == "3012") // เป็นรหัสเปลดล็อด
 {
 $arrPostData = array();
 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 $arrPostData['messages'][0]['type'] = "text";
-$arrPostData['messages'][0]['text'] = "เรียบร้อยคับ";
+$arrPostData['messages'][0]['text'] = "ปลดล็อคเรียบร้อยคับ";
 }else{
 $arrPostData = array();
 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
