@@ -8,13 +8,13 @@ $_msg = $arrJson['events'][0]['message']['text'];
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
-$filename = 'abc.txt';
+$filename = 'text.txt';
 if (file_exists($filename)) {
-$myfile = fopen('abc.txt', "w+") or die("Unable to open file!");
+$myfile = fopen('text.txt', "w+") or die("Unable to open file!");
 fwrite($myfile, $_msg);
 fclose($myfile);
 } else {
-$myfile = fopen('abc.txt', "x+") or die("Unable to open file!");
+$myfile = fopen('text.txt', "x+") or die("Unable to open file!");
 fwrite($myfile, $_msg);
 fclose($myfile);
 }
