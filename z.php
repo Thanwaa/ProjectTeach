@@ -15,7 +15,7 @@ function send_line_notify($message, $token)
   curl_close( $ch );
   return $result;
 }
-$message = 'สวัดีนี่พริกแกง';
+$message = 'สวัสดีนี่พริกแกง';
 $token = 'XUJnwxApaV3oTmlQc4UmiGtmwH3GC0woLbPGSaeafea';
 echo send_line_notify($message, $token);
 ?>
