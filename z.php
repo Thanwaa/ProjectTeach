@@ -16,6 +16,6 @@ function send_line_notify($message, $token)
   return $result;
 }
 $message = 'สวัสดีนี่พริกแกง';
-$token = 'XUJnwxApaV3oTmlQc4UmiGtmwH3GC0woLbPGSaeafea';
+$token = '';
 echo send_line_notify($message, $token);
 ?>
