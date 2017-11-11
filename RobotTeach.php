@@ -1,4 +1,5 @@
 <?php
+
 $strAccessToken = "zt6fbDFA1q1ZANR1pK36VIPplVz/MTWpuGKN0AxW2L1qUjd4AN/dmEtvuaVfE76kdjnzJdqXKHDH/qAp45WaHqTdfOCi4iWts9qGuBvVAkqcEDz5t7wSOfvij6JRlUxhgGCkVzCSEK7N8vzDgzck5QdB04t89/1O/w1cDnyilFU=";
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
@@ -46,4 +47,26 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close ($ch);
+
+
+function send_line_notify($message, $token)
+{{
+  $ch = curl_init();
+  curl_setopt( $ch, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+  curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 0);
+  curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 0);
+  curl_setopt( $ch, CURLOPT_POST, 1);
+  curl_setopt( $ch, CURLOPT_POSTFIELDS, "message=$message");
+  curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+  $headers = array( "Content-type: application/x-www-form-urlencoded", "Authorization: Bearer $token", );
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+  curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+  $result = curl_exec( $ch );
+  curl_close( $ch );
+  return $result;
+}
+$message = 'สวัสดีนี่พริกแกง';
+$token = 'XUJnwxApaV3oTmlQc4UmiGtmwH3GC0woLbPGSaeafea';
+echo send_line_notify($message, $token);
+}
 ?>
